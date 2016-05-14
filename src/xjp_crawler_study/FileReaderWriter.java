@@ -9,8 +9,9 @@ public class FileReaderWriter {
 	public static boolean createNewFile(String filePath) {
 		boolean isSuccess = true;
 		String filePathTurn = filePath.replaceAll("\\\\", "/");
-		int index = filePathTurn.indexOf("/");
+		int index = filePathTurn.lastIndexOf("/");
 		String dir = filePathTurn.substring(0, index);
+//		System.out.println("the dir is: " + dir);
 		File fileDir = new File(dir);
 		isSuccess = fileDir.mkdirs();
 		File file = new File(filePathTurn);

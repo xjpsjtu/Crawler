@@ -9,6 +9,7 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
 public class Crawler2 extends WebCrawler{
+	DownTool downTool = new DownTool();
 	private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
             + "|png|mp3|mp3|zip|gz))$");
 	/*
@@ -30,6 +31,12 @@ public class Crawler2 extends WebCrawler{
 			String text = htmlParseData.getText();
 			String html = htmlParseData.getHtml();
 			Set<WebURL> links = htmlParseData.getOutgoingUrls();
+			
+			//download this page
+			String contentType = page.getContentType();
+			String filePath = "D:\\tmp_en\\" + downTool.getFileNameByUrl(url, contentType) + ".txt";
+			System.out.println("File path is: " + filePath);
+			downTool.saveToLocal(text, filePath);
 			
 			System.out.println("Text length: " + text.length());
 			System.out.println("Html length: " + html.length());

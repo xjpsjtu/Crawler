@@ -21,7 +21,7 @@ public class DownComTool {
 	/**
 	 * 根据url和网页类型生成需要保存的网页的文件名，去除url中的非文件名字符
 	 */
-	private String getFileNameByUrl(String url, String contentType){
+	public String getFileNameByUrl(String url, String contentType){
 		url = url.substring(7);
 		if(contentType.indexOf("html") != -1){
 			//把所有url中的特殊符号转化为下划线
@@ -34,7 +34,7 @@ public class DownComTool {
 	/**
 	 * 保存网页字节数组到本地文件，filePath违要保存的文件的相对地址
 	 */
-	private void saveToLocal(byte[] data, String filePath){
+	protected void saveToLocal(byte[] data, String filePath){
 		try{
 			if(FileReaderWriter.createNewFile(filePath)){
 				DataOutputStream out = new DataOutputStream(new FileOutputStream(new File(filePath)));

@@ -13,6 +13,7 @@ public class Controller {
 		
 		CrawlConfig config = new CrawlConfig();
 		config.setCrawlStorageFolder(crawlStorageFolder);
+		config.setMaxPagesToFetch(10000);
 		/*
 		 * Instantiate the controller for this crawl.
 		 */
@@ -24,10 +25,7 @@ public class Controller {
 		/*
 		 * Add some seeds
 		 */
-		controller.addSeed("http://www.baidu.com");
-		controller.addSeed("http://www.taobao.com");
-		controller.addSeed("http://www.tencent.com");
-		controller.addSeed("http://www.163.com");
+		controller.addSeed("https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss");
 		
 		/*
 		 * Start the crawl
